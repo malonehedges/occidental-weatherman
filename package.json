@@ -1,0 +1,23 @@
+{
+  "name": "occidental-weatherman",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": "6.2.1"
+  },
+  "scripts": {
+    "lint": "standard --fix \"**/*.js\"",
+    "start": "node app.js",
+    "monitor": "nodemon app.js",
+    "deploy": "git push heroku master"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "actions-on-google": "^1.0.0"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
+  }
+}
