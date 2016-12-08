@@ -8,7 +8,7 @@ const getWeather = require('./weather')
 const app = express()
 app.use(bodyParser.json({type: 'application/json'}))
 
-const WEATHER_ACTION = 'getWeather'
+const WEATHER_ACTION = 'weatherQuery'
 
 // [START YourAction]
 app.post('/webhook', function (req, res) {
