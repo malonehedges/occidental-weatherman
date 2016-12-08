@@ -16,6 +16,7 @@ app.post('/webhook', function (req, res) {
     return getWeather().then((temp) => {
       assistant.tell(`It's currently ${temp} degrees at Occidental College`)
     }).catch((error) => {
+      console.error(error)
       assistant.tell(`I can't seem to get that right now`)
     })
   }
