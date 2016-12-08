@@ -15,21 +15,23 @@ const reqOptions = {
   path: '/ws/'
 }
 
-const getWeather = (cb) => {
-  https.request(reqOptions, (response) => {
-    let body = ''
+const getWeather = () => {
+  return new Promise((resolve, reject) => {
+    https.request(reqOptions, (response) => {
+      let body = ''
 
-    response.on('data', (chunk) => {
-      body += chunk
-    })
+      response.on('data', (chunk) => {
+        body += chunk
+      })
 
-    response.on('end', () => {
-      const tempNum = formatWeather(body)
-      cb(null, tempNum)
-    })
-  }).on('error', (error) => {
-    cb(error)
-  }).end()
+      response.on('end', () => {
+        const tempNum = formatWeather(body)
+        resolve(tempNum)
+      })
+    }).on('error', (error) => {
+      reject(error)
+    }).end()
+  })
 }
 
 module.exports = getWeather
